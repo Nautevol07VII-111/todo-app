@@ -5,7 +5,7 @@ export function TodoCard(props) {
         <div className="card todo-item">
             <p>{todo.input}</p>
             <div className="todo-buttons">
-                <button onClick={() => {handleCompleteTodo(todoIndex)}} disabled={todo.complete} >
+                <button onClick={() => {handleCompleteTodo(todoIndex)}} disabled={todo.complete} className={`Done ${todo.complete ? 'completed' : ''}`}>
                     <h6>Done</h6>
                 </button>
                 <button onClick={() => {handleDeleteTodo(todoIndex)}}>

@@ -31,7 +31,7 @@ function App() {
       //CRUD action: update/edit/modify
       let newTodoList = [...todos] //created duplicate array(listOfTodos)
       let completedTodo = todos[index] //accessed todos we're completing and then modify completion status
-      completedTodo['complete'] = true //we update the modified status in new list
+      completedTodo['complete','done'] = true //we update the modified status in new list
       newTodoList[index] = completedTodo //Saves entry to new list
       setTodos[newTodoList] //overrides state to match new list we just created
       handleSaveData(newTodoList)
@@ -52,7 +52,7 @@ function App() {
   useEffect(() => { 
   if(!localStorage || localStorage.getItem('todo-app')) { return } 
   let db = JSON.parse(localStorage.getItem('todo-app'))
-  setTodos(db.todos)
+  
  },[])
 
 
