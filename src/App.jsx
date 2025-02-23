@@ -28,11 +28,15 @@ function App() {
   }
 
   function handleCompleteTodo(index) {
+    //Defensive check verify that the index is within the bounds of my todos array
+    if (index < 0 || index >= todos.length) {
+      console.error('Invalid todo index:' , index);
+      return;
+    }
       //CRUD action: update/edit/modify
       let newTodoList = [...todos] //created duplicate array(listOfTodos)
-      let completedTodo = todos[index] //accessed todos we're completing and then modify completion status
-      completedTodo['complete','done'] = true //we update the modified status in new list
-      newTodoList[index] = completedTodo //Saves entry to new list
+      newTodoList[index].complete = true //directly marks specific todo as complete which will trigger the onClick function in my todoCard.jsx file
+
       setTodos[newTodoList] //overrides state to match new list we just created
       handleSaveData(newTodoList)
   }
